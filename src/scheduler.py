@@ -7,15 +7,16 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 
 app = Flask(__name__)
-log = logging.getLogger(__name__)
+logging.basicConfig(level=logging.WARN)
+
+REDDIT_URL = "www.reddit.com/dev/api/subreddits/new?limit=5"
 
 def make_request():
     '''
         Makes the official request to the reddit api
         in order to get the 15 most popular posts
     '''
-    log.debug("This is not yet implemented")
-    print("This is not implemented yet.")
+    logging.warning("This is a debug message.")
     return NotImplemented
 
 scheduler = BackgroundScheduler()
