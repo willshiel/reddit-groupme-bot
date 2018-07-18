@@ -20,13 +20,12 @@ def get_reddit():
 
 
 def make_request(reddit):
-    logging.warning("made it here!")
     try:
-        if reddit is None:
-            reddit = get_reddit()
         for submission in reddit.subreddit('soccer').hot(limit=25):
             if submission != None:
-                if submission.ups > 10000:
+                if submission.ups > 5000:
                     print(submission.title)
+            else:
+                logging.debug("There were no posts that were over the threshold.")
     except:
         logging.error("Unable to get submissions")
