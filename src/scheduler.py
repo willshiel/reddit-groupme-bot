@@ -2,19 +2,9 @@ import time
 import logging
 from reddit_client import make_request, get_reddit
 
-reddit = get_reddit()
-
-cached_posts = []
-
-def add_submissions_to_cache(submissions):
-    for submission in submissions:
-        if submission not in cached_posts:
-            cached_posts.append(submission)
-            
-        # make call to database here
-
 
 def main():
+    reddit = get_reddit()
     while True:
         logging.debug("Making request.")
         submissions = make_request(reddit)
