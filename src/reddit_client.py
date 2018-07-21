@@ -4,7 +4,7 @@ import praw
 import logging
 import pdb
 
-logging.basicConfig(filename='main.log', level=logging.DEBUG)
+logging.basicConfig(filename='main.log', level=logging.ERROR)
 
 def get_reddit():
     try:
@@ -25,7 +25,7 @@ def make_request(reddit):
     try:
         for submission in reddit.subreddit('soccer').hot(limit=25):
             if submission != None:
-                if submission.ups > 3000:
+                if submission.ups > 5000:
                     hot_submissions.append(submission)
             else:
                 logging.debug("There were no posts that were over the threshold.", exc_info=True)
