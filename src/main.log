@@ -1,0 +1,12 @@
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): updatechecker.bryceboe.com:80
+DEBUG:urllib3.connectionpool:http://updatechecker.bryceboe.com:80 "PUT /check HTTP/1.1" 500 291
+DEBUG:root:Making request.
+DEBUG:prawcore:Fetching: GET https://oauth.reddit.com/r/soccer/hot
+DEBUG:prawcore:Data: None
+DEBUG:prawcore:Params: {'limit': 25, 'raw_json': 1}
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.reddit.com:443
+DEBUG:urllib3.connectionpool:https://www.reddit.com:443 "POST /api/v1/access_token HTTP/1.1" 200 113
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth.reddit.com:443
+DEBUG:urllib3.connectionpool:https://oauth.reddit.com:443 "GET /r/soccer/hot?limit=25&raw_json=1 HTTP/1.1" 200 9738
+DEBUG:prawcore:Response: 200 (9738 bytes)
+DEBUG:root:Waiting five seconds to make next request.

@@ -2,7 +2,9 @@ import time
 import secrets
 import praw
 import logging
+import pdb
 
+logging.basicConfig(filename='main.log', level=logging.DEBUG)
 
 def get_reddit():
     try:
@@ -15,7 +17,7 @@ def get_reddit():
         )
 
     except:
-        logging.error("Unable to connect to reddit")
+        logging.error("Unable to connect to reddit", exc_info=True)
 
 
 def make_request(reddit):
@@ -23,13 +25,13 @@ def make_request(reddit):
     try:
         for submission in reddit.subreddit('soccer').hot(limit=25):
             if submission != None:
-                if submission.ups > 5000:
+                if submission.ups > 3000:
                     hot_submissions.append(submission)
             else:
-                logging.debug("There were no posts that were over the threshold.")
+                logging.debug("There were no posts that were over the threshold.", exc_info=True)
             
         
         return hot_submissions
 
     except:
-        logging.error("Unable to get submissions")
+        logging.error("Unable to get submissions", exc_info=True)
