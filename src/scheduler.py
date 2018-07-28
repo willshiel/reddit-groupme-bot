@@ -16,12 +16,15 @@ def add_submissions_to_cache(submissions):
             submissions_cache.appendleft(submission.id)
 
 def main():
-    reddit = get_reddit()
-    while True:
-        logging.debug("Making request.")
-        submissions = make_request(reddit)
-        add_submissions_to_cache(submissions)
-        logging.debug("Waiting five seconds to make next request.")
-        time.sleep(5 * 60)
+    try:
+        reddit = get_reddit()
+        while True:
+            logging.debug("Making request.")
+            submissions = make_request(reddit)
+            add_submissions_to_cache(submissions)
+            logging.debug("Waiting five seconds to make next request.")
+            time.sleep(5 * 60)
+    except:
+        logging.error("Error trying to connect to reddit", exc_info=True))
 
 main()
