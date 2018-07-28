@@ -7,8 +7,10 @@ logging.basicConfig(filename='../logs/main.log', level=logging.ERROR)
 
 def main():
     try:
-        reddit = RedditClient()
+        reddit = None
         while True:
+            if reddit = None:
+                reddit = RedditClient()
             hot_submissions = reddit.get_hot_submissions()
             time.sleep(5 * 60)
     except:
