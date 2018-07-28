@@ -2,14 +2,14 @@ import time
 import logging
 from app import start
 
-logging.basicConfig(filename='../logs/main.log', level=logging.ERROR)
+logging.basicConfig(filename='logs/scheduler.log', level=logging.ERROR)
 
 def main():
     while True:
         try:
             start()
         except:
-            logging.error("Error trying to connect to reddit", exc_info=True))
+            logging.error("Error trying to connect to reddit", exc_info=True)
             logging.error("Bringing the bot down for a couple hours")
             time.sleep(5 * 60 * 60)
 

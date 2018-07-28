@@ -4,7 +4,7 @@ import praw
 import logging
 from utils import convert_to_submission
 
-logging.basicConfig(filename='../logs/reddit_client.log', level=logging.ERROR)
+logging.basicConfig(filename='logs/reddit_client.log', level=logging.ERROR)
 
 class RedditClient(object):
 

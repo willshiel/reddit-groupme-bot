@@ -4,7 +4,7 @@ from database_client import DatabaseClient
 from collections import deque
 import logging
 
-logging.basicConfig(filename='../logs/reddit_client.log', level=logging.ERROR)
+logging.basicConfig(filename='logs/reddit_client.log', level=logging.ERROR)
 
 queue = deque(maxlen=100)
 reddit = None
@@ -33,9 +33,9 @@ def _remove_duplicates(submissions):
 
 def _instantiate_clients():
     try:
-        if reddit = None:
+        if reddit == None:
             reddit = RedditClient()
-        if db = None:
+        if db == None:
             db = DatabaseClient()
     except:
         logging.error("Could not instantiate clients.", exc_info=True)

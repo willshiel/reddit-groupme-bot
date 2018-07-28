@@ -2,7 +2,7 @@ import logging
 import requests
 from secrets import BOT_ID
 
-logging.basicConfig(filename='../logs/groupme.log', level=logging.ERROR)
+logging.basicConfig(filename='logs/groupme.log', level=logging.ERROR)
 
 class GroupMeClient(object):
 
