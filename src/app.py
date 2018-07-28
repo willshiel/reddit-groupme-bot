@@ -4,7 +4,6 @@ from database_client import DatabaseClient
 from groupme_client import GroupMeClient
 from collections import deque
 import logging
-import pdb
 
 logging.basicConfig(filename='logs/app.log', level=logging.ERROR)
 
@@ -20,7 +19,6 @@ def start():
         hot_subs = reddit.get_hot_submissions()
         new_subs = _remove_duplicates(hot_subs)
         for sub in new_subs:
-            pdb.set_trace()
             print("inserting submissions")
             db.insert_submission(sub)
             print("posting messages")
