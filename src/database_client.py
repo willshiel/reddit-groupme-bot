@@ -16,7 +16,7 @@ class DatabaseClient(object):
             self.client = None
             self.db = None
 
-    def insertSubmission(self, submission):
+    def insert_submission(self, submission):
         try:
             submissions_collection = self.db['submission']
             id = submissions_collection.insert_one(submission)
@@ -27,7 +27,7 @@ class DatabaseClient(object):
             logging.error("Unable to insert into db", exc_info=True)
             return None
         
-    def getSubmissionById(self, id):
+    def get_submissionById(self, id):
         try:
             submissions_collection = self.db['submission']
             return submissions_collection.find_one()
@@ -35,7 +35,7 @@ class DatabaseClient(object):
             logging.error("Unable to get the submission from the db", exc_info=True)
             return None
 
-    def getAllSubmissions(self):
+    def get_all_submissions(self):
         try:
             submissions_collection = self.db['submission']
             return [sub for sub in submissions_collection.find({})]
@@ -43,6 +43,6 @@ class DatabaseClient(object):
             logging.error("Unable to get the submission from the db", exc_info=True)
             return None
 
-    def deleteSubmissionById(self, id):
+    def delete_submission_by_id(self, id):
         """be very careful using this!!!!"""
         return NotImplementedError
