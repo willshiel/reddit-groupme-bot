@@ -5,7 +5,7 @@ from collections import deque
 import pdb
 
 # initialize logger
-logging.basicConfig(filename='main.log', level=logging.ERROR)
+logging.basicConfig(filename='../logs/main.log', level=logging.ERROR)
 
 submissions_cache = deque(maxlen=10)
 

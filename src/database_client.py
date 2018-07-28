@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from secrets import CONNECTION_STRING
 import logging
 
-logging.basicConfig(filename='database.log', level=logging.ERROR)
+logging.basicConfig(filename='../logs/database.log', level=logging.ERROR)
 
 class DatabaseClient(object):
 

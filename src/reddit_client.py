@@ -4,7 +4,7 @@ import praw
 import logging
 import pdb
 
-logging.basicConfig(filename='main.log', level=logging.ERROR)
+logging.basicConfig(filename='../logs/main.log', level=logging.ERROR)
 
 def get_reddit():
     try:
