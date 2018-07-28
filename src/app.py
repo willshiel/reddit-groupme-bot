@@ -16,6 +16,9 @@ def start():
         _instantiate_clients()
         hot_subs = reddit.get_hot_submissions()
         new_subs = _remove_duplicates(hot_subs)
+        for sub in new_subs:
+            db.insert_submission(sub)
+            groupme_client.post_message(sub.title)
         
     time.sleep(5 * 60)
 
