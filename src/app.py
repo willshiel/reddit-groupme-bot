@@ -29,7 +29,7 @@ def start():
 def _remove_duplicates(submissions):
     new_subs = []
     for submission in submissions:
-        if submission['id'] not in queue:
+        if submission is not None and submission['id'] not in queue:
             queue.append(submission['id'])
             new_subs.append(submission)
     
