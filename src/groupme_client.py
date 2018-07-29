@@ -1,8 +1,9 @@
 import logging
 import requests
 from secrets import BOT_ID
+from config import get_base_logging_directory
 
-logging.basicConfig(filename='logs/groupme.log', level=logging.ERROR)
+logging.basicConfig(filename=get_base_logging_directory() + 'groupme.log', level=logging.ERROR)
 
 class GroupMeClient(object):
 

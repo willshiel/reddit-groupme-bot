@@ -3,9 +3,10 @@ from reddit_client import RedditClient
 from database_client import DatabaseClient
 from groupme_client import GroupMeClient
 from collections import deque
+from config import get_base_logging_directory
 import logging
 
-logging.basicConfig(filename='logs/app.log', level=logging.ERROR)
+logging.basicConfig(filename=get_base_logging_directory() + 'app.log', level=logging.ERROR)
 
 queue = deque(maxlen=100)
 

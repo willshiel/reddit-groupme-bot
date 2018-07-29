@@ -2,8 +2,9 @@ from models import Submission
 from pymongo import MongoClient
 from secrets import CONNECTION_STRING
 import logging
+from config import get_base_logging_directory
 
-logging.basicConfig(filename='logs/database.log', level=logging.ERROR)
+logging.basicConfig(filename=get_base_logging_directory() + 'database.log', level=logging.ERROR)
 
 class DatabaseClient(object):
 

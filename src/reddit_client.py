@@ -3,8 +3,9 @@ import secrets
 import praw
 import logging
 from utils import convert_to_submission
+from config import get_base_logging_directory
 
-logging.basicConfig(filename='logs/reddit_client.log', level=logging.ERROR)
+logging.basicConfig(filename=get_base_logging_directory() + 'reddit_client.log', level=logging.ERROR)
 
 class RedditClient(object):
 
