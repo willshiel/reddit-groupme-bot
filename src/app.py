@@ -24,7 +24,7 @@ def start():
             print("posting messages")
             groupme_client.post_text_message(sub['title'])
         
-    time.sleep(5 * 60)
+        time.sleep(5 * 60)
 
 def _remove_duplicates(submissions):
     new_subs = []
