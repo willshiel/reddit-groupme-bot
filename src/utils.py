@@ -8,3 +8,6 @@ def convert_to_submission(reddit_sub):
                    reddit_sub.author.name,
                    reddit_sub.url
         )
+
+def contains_url(reddit_sub):
+    return reddit_sub['url'] is not None and reddit_sub['url'] != ''
