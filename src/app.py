@@ -23,7 +23,7 @@ def start():
             print("inserting submissions")
             db.insert_submission(sub)
             print("posting messages")
-            groupme_client.post_text_message(sub['title'] + "\n" + sub['url'])
+            groupme_client.post_submission(sub)
         
         time.sleep(5 * 60)
 
