@@ -4,14 +4,17 @@ from secrets import BOT_ID
 from config import get_base_logging_directory
 from utils import contains_url
 
-logging.basicConfig(filename=get_base_logging_directory() + 'groupme.log', level=logging.ERROR)
+logging.basicConfig(filename=get_base_logging_directory() + 'groupme.log',
+                    level=logging.ERROR)
+
 
 class GroupMeClient(object):
 
     def post_submission(self, sub):
         try:
             post = self._create_post(sub)
-            r = requests.post("https://api.groupme.com/v3/bots/post", data=post)
+            r = requests.post("https://api.groupme.com/v3/bots/post",
+                              data=post)
             if r.status_code != 202:
                 raise RuntimeError("Unable to post groupme message.")
         except:

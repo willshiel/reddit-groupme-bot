@@ -2,16 +2,18 @@ from models import Submission
 from pymongo import MongoClient
 from secrets import CONNECTION_STRING
 import logging
-from config import get_base_logging_directory
+from config import get_base_logging_directory, CONFIG
 
-logging.basicConfig(filename=get_base_logging_directory() + 'database.log', level=logging.ERROR)
+logging.basicConfig(filename=get_base_logging_directory() + 'database.log',
+                    level=logging.ERROR)
+
 
 class DatabaseClient(object):
 
     def __init__(self):
         try:
             self.client = MongoClient(CONNECTION_STRING)
-            self.db = self.client['bot']    
+            self.db = self.client[CONFIG["db"]]
         except:
             logging.error("Unable to connect to database", exc_info=True)
             self.client = None
@@ -27,13 +29,14 @@ class DatabaseClient(object):
         except:
             logging.error("Unable to insert into db", exc_info=True)
             return None
-        
+
     def get_submissionById(self, id):
         try:
             submissions_collection = self.db['submission']
             return submissions_collection.find_one()
         except:
-            logging.error("Unable to get the submission from the db", exc_info=True)
+            logging.error("Unable to get the submission from the db", 
+                          exc_info=True)
             return None
 
     def get_all_submissions(self):
@@ -41,7 +44,8 @@ class DatabaseClient(object):
             submissions_collection = self.db['submission']
             return [sub for sub in submissions_collection.find({})]
         except:
-            logging.error("Unable to get the submission from the db", exc_info=True)
+            logging.error("Unable to get the submission from the db",
+                          exc_info=True)
             return None
 
     def delete_submission_by_id(self, id):
