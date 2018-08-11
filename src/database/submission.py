@@ -1,14 +1,13 @@
-from models import Submission
-from pymongo import MongoClient
-from secrets import CONNECTION_STRING
+from ..secrets import CONNECTION_STRING
 import logging
-from config import get_base_logging_directory, CONFIG
+from ..config import get_base_logging_directory, CONFIG
+from pymongo import MongoClient
 
 logging.basicConfig(filename=get_base_logging_directory() + 'database.log',
                     level=logging.ERROR)
 
 
-class DatabaseClient(object):
+class SubmissionClient(object):
 
     def __init__(self):
         try:
@@ -23,17 +22,14 @@ class DatabaseClient(object):
         try:
             submissions_collection = self.db['submission']
             id = submissions_collection.insert_one(submission)
-            if id is None:
-                raise InsertError("Couldn't insert submission:\n{}".format(submission))
-            return id
         except:
             logging.error("Unable to insert into db", exc_info=True)
             return None
 
-    def get_submissionById(self, id):
+    def get_submission_by_id(self, id):
         try:
             submissions_collection = self.db['submission']
-            return submissions_collection.find_one()
+            return submissions_collection.find({"id": id})
         except:
             logging.error("Unable to get the submission from the db", 
                           exc_info=True)
@@ -44,7 +40,7 @@ class DatabaseClient(object):
             submissions_collection = self.db['submission']
             return [sub for sub in submissions_collection.find({})]
         except:
-            logging.error("Unable to get the submission from the db",
+            logging.error("Unable to get the submissions from the db",
                           exc_info=True)
             return None
 

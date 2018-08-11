@@ -1,8 +1,8 @@
 import secrets
 import praw
 import logging
-from utils import convert_to_submission
-from config import get_base_logging_directory
+from src.utils import convert_to_submission
+from src.config import get_base_logging_directory
 
 logging.basicConfig(filename=get_base_logging_directory() + 'reddit_client.log',
                     level=logging.ERROR)

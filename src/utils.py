@@ -1,4 +1,4 @@
-from models import Submission
+from src.models import Submission
 
 def convert_to_submission(reddit_sub):
     return Submission(reddit_sub.id,

@@ -1,10 +1,6 @@
 import time
 import logging
-from app import start
-from config import get_base_logging_directory
-
-logging.basicConfig(filename=get_base_logging_directory() + 'scheduler.log',
-                    level=logging.ERROR)
+from src.app import start
 
 
 def main():
