@@ -1,7 +1,7 @@
 import logging
 import requests
-from bot.config import get_base_logging_directory
-from bot.utils import contains_url
+from config import get_base_logging_directory
+from utils import contains_url
 
 logging.basicConfig(filename=get_base_logging_directory() + 'groupme.log',
                     level=logging.ERROR)

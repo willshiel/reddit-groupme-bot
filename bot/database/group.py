@@ -1,6 +1,6 @@
 import logging
-from bot.secrets import CONNECTION_STRING
-from bot.config import CONFIG
+from secrets import CONNECTION_STRING
+from config import CONFIG
 from pymongo import MongoClient
 
 COLLECTION_NAME = "group_collection"

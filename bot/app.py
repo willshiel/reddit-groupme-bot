@@ -1,8 +1,8 @@
 """contains all back end application logic for the bot"""
 from clients.reddit_client import RedditClient
 from clients.groupme_client import GroupMeClient
-from bot.database.submission import SubmissionClient
-from bot.database.group import GroupClient
+from database.submission import SubmissionClient
+from database.group import GroupClient
 from collections import deque
 import time
 

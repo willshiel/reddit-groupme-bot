@@ -1,5 +1,5 @@
-from bot.secrets import CONNECTION_STRING
-from bot.config import get_base_logging_directory, CONFIG
+from secrets import CONNECTION_STRING
+from config import get_base_logging_directory, CONFIG
 from pymongo import MongoClient
 import logging
 
