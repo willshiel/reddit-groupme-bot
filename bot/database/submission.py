@@ -1,7 +1,7 @@
-from ..secrets import CONNECTION_STRING
-import logging
-from ..config import get_base_logging_directory, CONFIG
+from bot.secrets import CONNECTION_STRING
+from bot.config import get_base_logging_directory, CONFIG
 from pymongo import MongoClient
+import logging
 
 logging.basicConfig(filename=get_base_logging_directory() + 'database.log',
                     level=logging.ERROR)

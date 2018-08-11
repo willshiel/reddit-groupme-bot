@@ -1,6 +1,6 @@
 import time
 import logging
-from src.app import start
+from bot.app import start
 
 
 def main():
