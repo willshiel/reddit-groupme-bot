@@ -3,3 +3,4 @@ src/secrets.py
 src/__pycache__
 logs/*
 src/config.py
+.idea/*
