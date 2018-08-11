@@ -1,6 +1,6 @@
-from bot.secrets import CLIENT_ID, CLIENT_SECRET, PASSWORD, USER_AGENT, USERNAME
-from bot.config import get_base_logging_directory
-from bot.utils import convert_to_submission
+from secrets import CLIENT_ID, CLIENT_SECRET, PASSWORD, USER_AGENT, USERNAME
+from config import get_base_logging_directory
+from utils import convert_to_submission
 import praw
 import logging
 
