@@ -5,7 +5,6 @@ from bot.database.submission import SubmissionClient
 from bot.database.group import GroupClient
 from collections import deque
 import time
-import pdb
 
 queue = deque(maxlen=100)
 
@@ -17,10 +16,8 @@ def start():
     group_db = GroupClient()
     while True:
         hot_subs = reddit.get_hot_submissions()
-        pdb.set_trace()
         new_subs = _remove_duplicates(hot_subs)
         active_groups = group_db.get_all_active_groups()
-        pdb.set_trace()
         for group in active_groups:
             for sub in new_subs:
                 sub_db.insert_submission(sub)
