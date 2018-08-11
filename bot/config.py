@@ -1,5 +1,5 @@
 """this will be different depending on the environment the app is running in"""
-CONFIG = {"profile": "will", "db": "bot_test"}
+CONFIG = {"profile": "will", "db": "bot"}
 
 
 def get_base_logging_directory():
