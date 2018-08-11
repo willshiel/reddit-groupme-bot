@@ -1,6 +1,9 @@
+from app import start
 import time
 import logging
-from bot.app import start
+import sys
+
+sys.path.extend(['/home/willy/Development/reddit-groupme-bot', '/home/willy/Development/reddit-groupme-bot/test'])
 
 
 def main():

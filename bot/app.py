@@ -1,6 +1,6 @@
 """contains all back end application logic for the bot"""
-from bot.clients.reddit_client import RedditClient
-from bot.clients.groupme_client import GroupMeClient
+from clients.reddit_client import RedditClient
+from clients.groupme_client import GroupMeClient
 from bot.database.submission import SubmissionClient
 from bot.database.group import GroupClient
 from collections import deque
@@ -15,7 +15,7 @@ def start():
     sub_db = SubmissionClient()
     group_db = GroupClient()
     while True:
-        hot_subs = reddit.get_hot_submissions()
+        hot_subs = reddit.submissions_upvoted_by_myself()
         new_subs = _remove_duplicates(hot_subs)
         active_groups = group_db.get_all_active_groups()
         for group in active_groups:
