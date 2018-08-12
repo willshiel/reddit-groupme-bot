@@ -1,6 +1,6 @@
-src/secrets.py
+bot/secrets.py
 .vscode/*
-src/__pycache__
+bot/__pycache__
 logs/*
-src/config.py
+bot/config.py
 .idea/*
