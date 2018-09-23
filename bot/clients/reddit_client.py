@@ -23,11 +23,11 @@ class RedditClient(object):
         except:
             logging.error("Unable to connect to reddit", exc_info=True)
 
-    def submissions_over_5000_upvotes(self):
+    def submissions_over_n_upvotes(self, n, limit=100):
         hot_submissions = []
-        for submission in reddit.subreddit('soccer').hot(limit=25):
+        for submission in reddit.subreddit('soccer').hot(limit=limit):
             if submission is not None:
-                if submission.ups > 500:
+                if submission.ups > n:
                     hot_submissions.append(convert_to_submission(submission))
             else:
                 logging.debug("There were no posts that were over the threshold.",

@@ -9,10 +9,11 @@ logging.basicConfig(filename=get_base_logging_directory() + 'database.log',
 
 class SubmissionClient(object):
 
-    def __init__(self):
+    def __init__(self, db='submission'):
         try:
             self.client = MongoClient(CONNECTION_STRING)
             self.db = self.client[CONFIG["db"]]
+            self.db_name = db
         except:
             logging.error("Unable to connect to database", exc_info=True)
             self.client = None
@@ -20,7 +21,7 @@ class SubmissionClient(object):
 
     def insert_submission(self, submission):
         try:
-            submissions_collection = self.db['submission']
+            submissions_collection = self.db[self.db_name]
             id = submissions_collection.insert_one(submission)
         except:
             logging.error("Unable to insert into db", exc_info=True)
@@ -28,7 +29,7 @@ class SubmissionClient(object):
 
     def get_submission_by_id(self, id):
         try:
-            submissions_collection = self.db['submission']
+            submissions_collection = self.db[self.db_name]
             return submissions_collection.find({"id": id})
         except:
             logging.error("Unable to get the submission from the db", 
@@ -37,7 +38,7 @@ class SubmissionClient(object):
 
     def get_all_submissions(self):
         try:
-            submissions_collection = self.db['submission']
+            submissions_collection = self.db[self.db_name]
             return [sub for sub in submissions_collection.find({})]
         except:
             logging.error("Unable to get the submissions from the db",
